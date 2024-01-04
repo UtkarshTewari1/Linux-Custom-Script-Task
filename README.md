@@ -22,6 +22,8 @@ To get the version"> ~/man/man1/internsctl.1
 
 # Giving permission to the script, executing the script and running the man command, output is attached overhere:
 
+
+
 ![1](https://github.com/UtkarshTewari1/Linux-Custom-Script-Task/assets/129510005/6c8b9cf6-d026-45e5-bea5-fbb91bef56f8)
 
 ![1 1](https://github.com/UtkarshTewari1/Linux-Custom-Script-Task/assets/129510005/9b40da57-a826-4848-bed4-15c6667ea569)
@@ -69,8 +71,9 @@ sudo cp ./internsctl.sh /usr/local/bin/internsctl
 
 # Section-B
 
-# To see the cpu information using the command, the code is as follows:
+# To see the cpu information and free using the command, the code is as follows:
 
+#!/bin/bash
 #!/bin/bash
 # Function to display usage information
 usage() {
@@ -89,6 +92,10 @@ get_cpu_info() {
     lscpu
 }
 
+get_memory_info() {
+    free
+}
+
 case $1 in
 	cpu)
 		case "$2" in
@@ -100,6 +107,16 @@ case $1 in
                 		;;
 		esac
 		;;
+	memory)
+        	case "$2" in
+            		getinfo)
+                		get_memory_info
+                		;;
+           		 *)
+                		echo "Memory subcommand incomplete. Use 'internsctl memory getinfo'."
+                		;;
+        	esac
+        	;;
 	-v) 
 		show_version
 		;;
@@ -116,10 +133,12 @@ case $1 in
 		echo "Invalid option:";usage	
 		;;
 esac
-
 # Attached hereby the pic after execution:-
 
 ![1](https://github.com/UtkarshTewari1/Linux-Custom-Script-Task/assets/129510005/06210b06-bfd5-4c61-a6ed-980085be0eb4)
+
+![1](https://github.com/UtkarshTewari1/Linux-Custom-Script-Task/assets/129510005/ac7ce04c-35a7-4004-ac7b-d9e5dcf5bbc2)
+
 
 
 
